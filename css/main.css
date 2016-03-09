@@ -1,0 +1,16 @@
+html,
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.search-bar {
+    padding: 16px;
+    font-size: 18px;
+}
+
+.search-button {
+    padding: 16px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 18px;
+}

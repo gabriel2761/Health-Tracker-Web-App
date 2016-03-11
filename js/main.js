@@ -1,28 +1,24 @@
 var app = app || {};
 
 app.Food = Backbone.Model.extend({
-    name: ''
-});
-
-app.FoodCollection = Backbone.Collection.extend({
-    model: app.Food
-});
-
-app.FoodCollectionView = Backbone.View.extend({
-    events: {
-        'click #search-button': 'addFood'
-    },
-    initialize: function() {
-        this.collection = new app.FoodCollection();
-        this.render();
-    },
-    render: function() {
-        console.log('fish fish');
-    },
-    addFood: function() {
-        // $('#foodCollection').append('<p>This is a food</p>');
-        console.log('miko');
+    defaults: {
+        food: ''
     }
 });
 
-var foodCollection = new app.FoodCollectionView();
+app.FoodView = Backbone.View.extend({
+    el: '#search-container',
+    initialize: function() {
+        this.template = _.template('<button class="search-button">Search<%= name %></button>');
+        this.render();
+    },
+    render: function() {
+        this.$el.html(this.template());
+    }
+});
+
+var foodView = new app.FoodView({
+    model: new app.Food()
+});
+
+console.log(foodView.toJSON());

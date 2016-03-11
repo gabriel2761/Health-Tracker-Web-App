@@ -9,17 +9,18 @@ app.Food = Backbone.Model.extend({
 app.FoodView = Backbone.View.extend({
     el: '#search-container',
     events: {
-        'click': 'alertUser'
+        'click #search-button': 'appendFood'
     },
     initialize: function() {
-        this.template = _.template('<button class="search-button">Search</button>');
+        this.template = _.template('<button id="search-button" class="search-button">Search</button>');
+        this.food = _.template('');
         this.render();
     },
     render: function() {
         this.$el.html(this.template());
     },
-    alertUser: function() {
-        alert("This works");
+    appendFood: function() {
+        $('#food-list').append('<li>this works</li>');
     }
 });
 

@@ -1,19 +1,18 @@
 var app = app || {};
 
-app.Food = Backbone.Model.extend({
+app.FoodModel = Backbone.Model.extend({
     defaults: {
-        food: ''
+        name: ''
     }
 });
 
-app.FoodView = Backbone.View.extend({
+app.FoodSearchView = Backbone.View.extend({
     el: '#search-container',
     events: {
         'click #search-button': 'appendFood'
     },
     initialize: function() {
         this.template = _.template('<button id="search-button" class="search-button">Search</button>');
-        this.food = _.template('');
         this.render();
     },
     render: function() {
@@ -24,6 +23,12 @@ app.FoodView = Backbone.View.extend({
     }
 });
 
-var foodView = new app.FoodView({
-    model: new app.Food()
+app.FoodItemView = Backbone.View.extend({
+    tagName: 'list',
+});
+
+var pizza = new app.FoodModel();
+
+var foodSearchView = new app.FoodSearchView({
+    model: new app.FoodModel()
 });

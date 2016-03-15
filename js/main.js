@@ -7,6 +7,10 @@ app.FoodModel = Backbone.Model.extend({
     }
 });
 
+app.FoodCollection = new Backbone.Collection.extend({
+    model: app.FoodModel
+});
+
 app.FoodSearchView = Backbone.View.extend({
     el: '#search-container',
     events: {
@@ -51,15 +55,14 @@ app.FoodCollection = Backbone.Collection.extend({
     model: app.FoodModel
 });
 
-var pizza = new app.FoodModel({ name: 'pizza' });
 
 var foodCollection = new app.FoodCollection([
-    pizza
+    new app.FoodModel({ name: 'Pizza' }),
+    new app.FoodModel({ name: 'Carrot' }),
+    new app.FoodModel({ name: 'Quich' })
 ]);
 
-
 var foodCollectionView = new app.FoodCollectionView({ collection: foodCollection });
+$('#food-collection').html(foodCollectionView.render().el);
 
-var foodSearchView = new app.FoodSearchView({
-    model: new app.FoodModel()
-});
+var foodSearchView = new app.FoodSearchView({});

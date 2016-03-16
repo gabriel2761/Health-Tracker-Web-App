@@ -12,4 +12,4 @@ var foodCollection = new app.FoodCollection([
 
 
 var foodCollectionView = new app.FoodCollectionView({ collection: foodCollection });
-$('#food-collection').html(foodCollectionView.render().el);
+$('#container').html(foodCollectionView.render().el);

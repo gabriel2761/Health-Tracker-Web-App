@@ -15,6 +15,7 @@ app.FoodCollectionView = Backbone.View.extend({
     template: _.template($('#food-collection').html()),
     events: {
         'click #search-button': 'search',
+        'keyup #search-bar': 'checkEnterPressed'
     },
     initialize: function() {
         this.collection.on('add', this.addFood, this);
@@ -26,7 +27,6 @@ app.FoodCollectionView = Backbone.View.extend({
     },
     search: function() {
         var food = $('#search-bar').val();
-
         this.collection.reset();
         this.collection.search(food);
         this.collection.each(this.addFood, this);
@@ -34,5 +34,8 @@ app.FoodCollectionView = Backbone.View.extend({
     addFood: function(food) {
         var foodItemView = new app.FoodItemView({ model: food });
         this.$el.append(foodItemView.render().el);
-    }
+    },
+    checkEnterPressed: function(event) {
+        if (event.keyCode === 13) this.search()
+    },
 });

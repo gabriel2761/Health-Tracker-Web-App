@@ -13,8 +13,10 @@ app.FoodCollection = Backbone.Collection.extend({
         }).done(function(result) {
             var foods = result.hits;
             foods.forEach(function(food) {
-                var name = food.fields.item_name;
-                self.add(new app.FoodModel({ name: name }));
+                self.add(new app.FoodModel({
+                    name: food.fields.item_name,
+                    calories: food.fields.nf_calories
+                }));
             });
         }).error(function(jqXHR, textStatus, errorThrown) {
             console.log('Something went wrong');

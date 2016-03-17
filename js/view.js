@@ -18,15 +18,16 @@ app.FoodCollectionView = Backbone.View.extend({
     },
     initialize: function() {
         this.collection.on('add', this.addFood, this);
-    },
-    search: function(e) {
-        var searchWord = $('#search-bar').val();
-        this.collection.search(searchWord);
+        this.collection.on('reset', this.render, this);
     },
     render: function() {
         this.$el.html(this.template);
-        this.collection.each(this.addFood, this);
         return this;
+    },
+    search: function(e) {
+        this.collection.reset();
+        this.collection.search($('#search-bar').val());
+        this.collection.each(this.addFood, this);
     },
     addFood: function(food) {
         var foodItemView = new app.FoodItemView({ model: food });

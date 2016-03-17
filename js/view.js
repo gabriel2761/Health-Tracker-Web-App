@@ -24,9 +24,11 @@ app.FoodCollectionView = Backbone.View.extend({
         this.$el.html(this.template);
         return this;
     },
-    search: function(e) {
+    search: function() {
+        var food = $('#search-bar').val();
+
         this.collection.reset();
-        this.collection.search($('#search-bar').val());
+        this.collection.search(food);
         this.collection.each(this.addFood, this);
     },
     addFood: function(food) {

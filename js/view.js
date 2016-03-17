@@ -14,13 +14,14 @@ app.FoodItemView = Backbone.View.extend({
 app.FoodCollectionView = Backbone.View.extend({
     template: _.template($('#food-collection').html()),
     events: {
-        'keydown #search-bar': 'search'
+        'click #search-button': 'search',
     },
     initialize: function() {
         this.collection.on('add', this.addFood, this);
     },
     search: function(e) {
-        console.log($('#search-bar').val());
+        var searchWord = $('#search-bar').val();
+        this.collection.search(searchWord);
     },
     render: function() {
         this.$el.html(this.template);

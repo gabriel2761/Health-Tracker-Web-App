@@ -17,6 +17,9 @@ app.FoodCollectionView = Backbone.View.extend({
     events: {
         'keydown #search-bar': 'search'
     },
+    initialize: function() {
+        this.collection.on('add', this.addFood, this);
+    },
     search: function(e) {
         console.log($('#search-bar').val());
     },

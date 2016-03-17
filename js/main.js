@@ -13,3 +13,8 @@ var foodCollection = new app.FoodCollection([
 
 var foodCollectionView = new app.FoodCollectionView({ collection: foodCollection });
 $('#container').html(foodCollectionView.render().el);
+
+
+foodCollection.add(new app.FoodModel({ name: 'fish' }));
+foodCollection.add(new app.FoodModel({ name: 'chips' }));
+foodCollection.add(new app.FoodModel({ name: 'meatballs' }));

@@ -15,7 +15,8 @@ app.FoodCollection = Backbone.Collection.extend({
             foods.forEach(function(food) {
                 self.add(new app.FoodModel({
                     name: food.fields.item_name,
-                    calories: food.fields.nf_calories
+                    brandname: food.fields.brand_name,
+                    calories: food.fields.nf_calories,
                 }));
             });
         }).error(function(jqXHR, textStatus, errorThrown) {

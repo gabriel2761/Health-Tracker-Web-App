@@ -12,17 +12,25 @@
 
     <main id="container" class="container">
 
+        <div id="listview"></div>
+
     </main>
 
     <script id="food-collection" type="text/template">
         <input id="search-bar" class="search-bar" placeholder="Search" onclick="this.select()">
         <button id="search-button" class="search-button glyphicon glyphicon-search"></button>
-        <ul id="foodlist"></ul>
+        <div id="foodlist"></div>
     </script>
 
     <script id="food-item" type="text/template">
-        <h3><%= name %></h3>
-        <p><%= calories %></p>
+        <div>
+            <p><%= brandname %></p>
+            <p><%= name %></p>
+        </div>
+        <div>
+            <p>cal</p>
+            <p><%= calories %></p>
+        </div>
     </script>
 
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>

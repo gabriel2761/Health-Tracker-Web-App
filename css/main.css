@@ -1,6 +1,7 @@
 html,
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #E9EAEA;
 }
 
 .search-bar {
@@ -13,4 +14,13 @@ body {
     background-color: #fff;
     border: 1px solid #ccc;
     font-size: 18px;
+}
+
+.food-item {
+    width: 250px;
+    margin-top: 10px;
+    padding: 12px 10px 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
 }

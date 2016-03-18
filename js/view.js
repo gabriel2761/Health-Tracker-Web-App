@@ -4,11 +4,17 @@ app.FoodItemView = Backbone.View.extend({
     tagName: 'section',
     className: 'food-item',
     template: _.template($('#food-item').html()),
+    events: {
+        click: 'addFood'
+    },
+    addFood: function() {
+        console.log(this.model.toJSON().name);
+    },
     render: function() {
         var foodTemplate = this.template(this.model.toJSON());
         this.$el.html(foodTemplate);
         return this;
-    },
+    }
 });
 
 app.FoodCollectionView = Backbone.View.extend({

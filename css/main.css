@@ -72,6 +72,11 @@ body {
     background-color: #fff;
 }
 
+.food-item:hover {
+    background-color: #d1d7fc;
+    cursor: pointer;
+}
+
 .food-item-calories {
     text-align: right;
 }

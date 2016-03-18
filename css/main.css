@@ -64,7 +64,7 @@ body {
 }
 
 .food-item {
-    width: 100%;
+    width: calc(100% - 24px);
     margin-top: 10px;
     padding: 12px 10px 5px;
     display: flex;

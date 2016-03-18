@@ -1,7 +1,13 @@
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
 html,
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #e9eaea;
+    color: #666;
+}
+
+[class*="fontawesome-"]:before {
+    font-family: 'fontawesome', sans-serif;
 }
 
 .container {
@@ -24,37 +30,50 @@ body {
     justify-content: space-between;
     text-align: center;
     font-size: 18px;
+    line-height: 70px;
 }
 
 .navigation-foods {
-    line-height: 60px;
     width: 50%;
 }
 
 .navigation-profile {
-    line-height: 55px;
     width: 50%;
 }
 
+.search-container {
+    display: flex;
+}
+
 .search-bar {
-    padding: 16px;
+    width: 80%;
+    border: 1px solid #fff;
     font-size: 18px;
+    height: 100%;
+    padding: 16px;
 }
 
 .search-button {
-    padding: 16px;
+    width: 20%;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
+    margin: 0 5px;
     font-size: 18px;
+    color: #777;
+    padding: 16px;
 }
 
 .food-item {
-    width: 250px;
+    width: 100%;
     margin-top: 10px;
     padding: 12px 10px 5px;
     display: flex;
     justify-content: space-between;
     background-color: #fff;
+}
+
+.food-item-calories {
+    text-align: right;
 }
 
 
@@ -66,6 +85,9 @@ body {
     }
     .container {
         padding-top: 20px;
+    }
+    .food-item {
+        width: 325px;
     }
 }
 

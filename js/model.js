@@ -23,14 +23,12 @@ app.ProfileModel = Backbone.Model.extend({
     },
     render: function() {
         var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
-        var total = 0;
+        var totalCalories = 0;
 
         foods.forEach(function(food) {
-            total += food.calories;
+            totalCalories += food.calories;
         });
 
-        this.totalCalories = total;
-
-        console.log(this.totalCalories);
+        this.set('totalCalories', totalCalories);
     },
 });

@@ -2,10 +2,16 @@ var app = app || {};
 
 app.ProfileView = Backbone.View.extend({
     template: _.template($('#profile-view').html()),
+    initialize: function() {
+        this.model.on('change', this.update, this);
+    },
     render: function() {
         var profileTemplate = this.template(this.model.toJSON());
         this.$el.html(profileTemplate);
         return this;
+    },
+    update: function() {
+        $('#total-calories').text(this.model.get('totalCalories'));
     },
 });
 

@@ -1,6 +1,7 @@
 var app = app || {};
 
 app.ProfileView = Backbone.View.extend({
+    tagName: 'section',
     template: _.template($('#profile-view').html()),
     initialize: function() {
         this.model.on('change', this.update, this);

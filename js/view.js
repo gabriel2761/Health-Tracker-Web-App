@@ -1,5 +1,14 @@
 var app = app || {};
 
+app.ProfileView = Backbone.View.extend({
+    template: _.template($('#profile-view').html()),
+    render: function() {
+        var profileTemplate = this.template(this.model.toJSON());
+        this.$el.html(profileTemplate);
+        return this;
+    },
+});
+
 app.FoodItemView = Backbone.View.extend({
     tagName: 'section',
     className: 'food-item',

@@ -8,16 +8,7 @@ app.FoodItemView = Backbone.View.extend({
         click: 'addFood'
     },
     addFood: function() {
-        var model = this.model.toJSON();
-        var food = JSON.parse(localStorage.getItem(app.FOODKEY));
-
-        food.push(new app.FoodModel({
-            name: model.name,
-            calories: model.calories,
-            brandname: model.brandname,
-        }));
-
-        localStorage.setItem(app.FOODKEY, JSON.stringify(food));
+       this.model.add();
     },
     render: function() {
         var foodTemplate = this.template(this.model.toJSON());

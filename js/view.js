@@ -4,9 +4,25 @@ app.NavigationView = Backbone.View.extend({
     tagName: 'nav',
     className: 'navigation',
     template: _.template($('#navigation-template').html()),
+    events: {
+        'click #navigation-foods': 'showFoods',
+        'click #navigation-profile': 'showProfile'
+    },
     render: function() {
         this.$el.html(this.template);
         return this;
+    },
+    showFoods: function() {
+        if ($('#listview').hasClass('hidden')) {
+            $('#listview').removeClass('hidden');
+            $('#profile').addClass('hidden');
+        }
+    },
+    showProfile: function() {
+        if ($('#profile').hasClass('hidden')) {
+            $('#profile').removeClass('hidden');
+            $('#listview').addClass('hidden');
+        }
     }
 });
 

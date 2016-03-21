@@ -21,7 +21,7 @@ app.ProfileModel = Backbone.Model.extend({
             totalCalories: 0
         };
     },
-    render: function() {
+    update: function() {
         var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
         var totalCalories = 0;
 

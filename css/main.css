@@ -125,9 +125,9 @@ body {
         width: 50%;
         display: block;
     }
-    .profile {
+    .profile-view {
         width: 50%;
-        display: block;
+        display: flex;
     }
 }
 

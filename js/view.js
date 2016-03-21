@@ -31,7 +31,6 @@ app.FoodItemView = Backbone.View.extend({
         this.profile.render();
     },
     render: function() {
-        this.profile.render();
         var foodTemplate = this.template(this.model.toJSON());
         this.$el.html(foodTemplate);
         return this;

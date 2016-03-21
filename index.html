@@ -10,22 +10,26 @@
 <body>
 
     <main id="container" class="container">
-        <nav class="navigation">
-            <div class="navigation-content">
-                <div class="navigation-foods">Foods</div>
-                <div class="navigation-profile">Profile</div>
-            </div>
-        </nav>
 
-        <div id="listview" class="listview"></div>
-
-        <div id="profile" class="profile-view"></div>
+        <div class="content">
+            <div id="listview" class="listview"></div>
+            <div id="profile" class="profile-view"></div>
+        </div>
 
     </main>
 
+    <script id="navigation-template" type="text/template">
+         <div class="navigation-content">
+            <div id="navigation-foods" class="navigation-foods">Foods</div>
+            <div id="navigation-profile" class="navigation-profile">Profile</div>
+        </div>
+    </script>
+
     <script id="profile-view" type="text/template">
-        <h4>profile</h4>
-        <p id="total-calories"></p>
+        <div class="calories">
+            <h4 class="calories-header">total calories</h4>
+            <p id="total-calories" class="total-calories"></p>
+        </div>
     </script>
 
     <script id="food-collection" type="text/template">

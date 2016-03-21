@@ -10,6 +10,33 @@ body {
     font-family: 'fontawesome', sans-serif;
 }
 
+.hidden {
+    display: none;
+}
+
+.content {
+    display: flex;
+}
+
+.listview {
+    width: 100%;
+}
+
+.profile {
+    width: 100%;
+}
+
+.calories {
+}
+
+.total-calories {
+    text-align: center;
+}
+
+.profile-view {
+    margin: 0 auto;
+}
+
 .container {
     padding-top: 70px;
 }
@@ -92,6 +119,12 @@ body {
         padding-top: 20px;
     }
     .food-item {
+        width: 90%;
+    }
+    .listview {
+        width: 50%;
+    }
+    .profile {
         width: 50%;
     }
 }

@@ -1,7 +1,18 @@
 var app = app || {};
 
+app.NavigationView = Backbone.View.extend({
+    tagName: 'nav',
+    className: 'navigation',
+    template: _.template($('#navigation-template').html()),
+    render: function() {
+        this.$el.html(this.template);
+        return this;
+    }
+});
+
 app.ProfileView = Backbone.View.extend({
     tagName: 'section',
+    className: 'profile-view',
     template: _.template($('#profile-view').html()),
     initialize: function() {
         this.model.on('change', this.update, this);

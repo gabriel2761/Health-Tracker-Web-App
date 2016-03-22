@@ -6,9 +6,20 @@ app.FoodModel = Backbone.Model.extend({
             name: '',
             calories: 0,
             brandname: '',
+            date: '',
         };
     },
     add: function() {
+        var today = new Date();
+        var day = today.getDate();
+        var month = today.getMonth() + 1;
+        var year = today.getFullYear();
+
+        var date = day + '-' + month + '-' + year;
+        console.log(date);
+
+        this.set('date', date);
+
         var food = JSON.parse(localStorage.getItem(app.FOODKEY));
         food.push(this);
         localStorage.setItem(app.FOODKEY, JSON.stringify(food));

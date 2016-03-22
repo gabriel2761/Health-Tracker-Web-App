@@ -27,6 +27,7 @@ body {
 }
 
 .calories {
+    text-align: center;
 }
 
 .total-calories {
@@ -35,6 +36,7 @@ body {
 
 .profile-view {
     margin: 0 auto;
+    width: 100%;
 }
 
 .container {
@@ -108,7 +110,6 @@ body {
     text-align: right;
 }
 
-
 /* Small devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
@@ -122,12 +123,11 @@ body {
         width: 90%;
     }
     .listview {
-        width: 50%;
+        width: 100%;
         display: block;
     }
     .profile-view {
-        width: 50%;
-        display: flex;
+        display: block;
     }
 }
 

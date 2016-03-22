@@ -6,17 +6,17 @@ app.FoodCollection = Backbone.Collection.extend({
     initialize: function() {
         self = this;
 
-        var food = JSON.parse(localStorage.getItem(app.FOODKEY));
+        var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
 
-        if (food === null) {
+        if (foods === null) {
             localStorage.setItem(app.FOODKEY, JSON.stringify([]));
         } else {
-            food.forEach(function(food) {
+            foods.forEach(function(food) {
                 self.add(food);
             });
         }
 
-        console.log(food);
+        console.log(foods);
     },
     search: function(food) {
         var url = 'https://api.nutritionix.com/v1_1/search/' + food + '?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=283e6104&appKey=7adbf74351829801e39b98eb74723505';

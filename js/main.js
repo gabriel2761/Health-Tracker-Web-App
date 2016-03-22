@@ -13,5 +13,6 @@ $('#listview').html(foodCollectionView.render().el);
 var profileView = new app.ProfileView({ model: profileModel });
 $('#profile').html(profileView.render().el);
 profileView.update();
+profileView.showRecent();
 
 

@@ -41,6 +41,19 @@ app.ProfileView = Backbone.View.extend({
     update: function() {
         $('#total-calories').text(this.model.get('totalCalories'));
     },
+    showRecent: function() {
+        var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
+        foods.forEach(function(food) {
+            var foodItemModel = new app.FoodModel({
+                date: food.date,
+                name: food.name,
+                calories: food.calories,
+                brandname: food.brandname,
+            });
+            var foodItemView = new app.FoodItemView({ model: foodItemModel, profile: this.model });
+            $('#profile-foods').append(foodItemView.render().el);
+        });
+    }
 });
 
 app.FoodItemView = Backbone.View.extend({

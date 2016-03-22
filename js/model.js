@@ -15,11 +15,16 @@ app.FoodModel = Backbone.Model.extend({
         var month = today.getMonth() + 1;
         var year = today.getFullYear();
         var date = day + '-' + month + '-' + year;
-        this.set('date', date);
 
-        var food = JSON.parse(localStorage.getItem(app.FOODKEY));
-        food.push(this);
-        localStorage.setItem(app.FOODKEY, JSON.stringify(food));
+        var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
+        foods.push({
+            date: date,
+            name: this.get('name'),
+            calories: this.get('calories'),
+            brandname: this.get('brandname')
+
+        });
+        localStorage.setItem(app.FOODKEY, JSON.stringify(foods));
     },
 });
 

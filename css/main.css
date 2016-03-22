@@ -22,6 +22,11 @@ body {
     width: 100%;
 }
 
+.foodlist {
+    height: 80vh;
+    overflow-y: scroll;
+}
+
 .profile {
     width: 100%;
 }
@@ -37,6 +42,11 @@ body {
 .profile-view {
     margin: 0 auto;
     width: 100%;
+}
+
+.profile-foods {
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 .container {

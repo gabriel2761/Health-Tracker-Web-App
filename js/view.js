@@ -32,6 +32,7 @@ app.ProfileView = Backbone.View.extend({
     template: _.template($('#profile-view').html()),
     initialize: function() {
         this.model.on('change', this.update, this);
+        this.model.on('change', this.showRecent, this);
     },
     render: function() {
         var profileTemplate = this.template(this.model.toJSON());
@@ -42,6 +43,7 @@ app.ProfileView = Backbone.View.extend({
         $('#total-calories').text(this.model.get('totalCalories'));
     },
     showRecent: function() {
+        $('#profile-foods').empty();
         var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
         foods.forEach(function(food) {
             var foodItemModel = new app.FoodModel({
@@ -51,6 +53,7 @@ app.ProfileView = Backbone.View.extend({
                 brandname: food.brandname,
             });
             var foodItemView = new app.FoodItemView({ model: foodItemModel, profile: this.model });
+
             $('#profile-foods').append(foodItemView.render().el);
         });
     }

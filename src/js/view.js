@@ -5,8 +5,8 @@ app.NavigationView = Backbone.View.extend({
     className: 'navigation',
     template: _.template($('#navigation-template').html()),
     events: {
-        'click #navigation-foods': 'showFoods',
-        'click #navigation-profile': 'showProfile'
+        'click #navigation-foods-tab': 'showFoods',
+        'click #navigation-profile-tab': 'showProfile'
     },
     render: function() {
         this.$el.html(this.template);

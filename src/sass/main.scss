@@ -31,11 +31,11 @@ body {
         font-size: 18px;
         line-height: 70px;
 
-        .navigation-foods {
+        .navigation-foods-tab {
             width: 50%;
         }
 
-        .navigation-profile {
+        .navigation-profile-tab {
             width: 50%;
         }
     }
@@ -68,26 +68,24 @@ body {
 
     .content {
         display: flex;
-
-        .profile-view {
-            margin: 0 auto;
-            width: 100%;
-
-            .calories {
-                text-align: center;
-            }
-
-            .total-calories {
-                text-align: center;
-            }
-
-        }
-
-        .listview {
-            width: 100%;
-        }
-
     }
+}
+
+.profile-view {
+    margin: 0 auto;
+    width: 100%;
+
+    .calories {
+        text-align: center;
+    }
+
+    .total-calories {
+        text-align: center;
+    }
+}
+
+.listview {
+    width: 100%;
 }
 
 .food-item {

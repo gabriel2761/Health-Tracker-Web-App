@@ -26,9 +26,9 @@ body {
     text-align: center;
     font-size: 18px;
     line-height: 70px; }
-    .navigation .navigation-content .navigation-foods {
+    .navigation .navigation-content .navigation-foods-tab {
       width: 50%; }
-    .navigation .navigation-content .navigation-profile {
+    .navigation .navigation-content .navigation-profile-tab {
       width: 50%; }
 
 .search-container {
@@ -52,15 +52,17 @@ body {
   padding-top: 70px; }
   .container .content {
     display: flex; }
-    .container .content .profile-view {
-      margin: 0 auto;
-      width: 100%; }
-      .container .content .profile-view .calories {
-        text-align: center; }
-      .container .content .profile-view .total-calories {
-        text-align: center; }
-    .container .content .listview {
-      width: 100%; }
+
+.profile-view {
+  margin: 0 auto;
+  width: 100%; }
+  .profile-view .calories {
+    text-align: center; }
+  .profile-view .total-calories {
+    text-align: center; }
+
+.listview {
+  width: 100%; }
 
 .food-item {
   width: calc(100% - 24px);

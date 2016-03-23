@@ -61,7 +61,7 @@ body {
   .profile-view .total-calories {
     text-align: center; }
 
-.listview {
+.food-search-list {
   width: 100%; }
 
 .food-item {
@@ -83,14 +83,14 @@ body {
     display: none; }
   .container {
     padding-top: 20px; }
-    .container .content .listview {
-      width: 100%;
-      display: block; }
-    .container .content .profile-view {
-      display: block; }
-      .container .content .profile-view .profile-foods {
-        height: 80vh;
-        overflow-y: scroll; }
+  .food-search-list {
+    width: 100%;
+    display: block; }
+  .profile-view {
+    display: block; }
+    .profile-view .profile-foods {
+      height: 80vh;
+      overflow-y: scroll; }
   .food-item {
     width: 90%; } }
 

@@ -84,7 +84,7 @@ body {
     }
 }
 
-.listview {
+.food-search-list {
     width: 100%;
 }
 
@@ -116,19 +116,17 @@ body {
     }
     .container {
         padding-top: 20px;
-        .content {
-             .listview {
-                width: 100%;
-                display: block;
-            }
-            .profile-view {
-                display: block;
+    }
+    .food-search-list {
+        width: 100%;
+        display: block;
+    }
+    .profile-view {
+        display: block;
 
-                .profile-foods {
-                    height: 80vh;
-                    overflow-y: scroll;
-                }
-            }
+        .profile-foods {
+            height: 80vh;
+            overflow-y: scroll;
         }
     }
     .food-item {

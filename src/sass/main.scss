@@ -12,7 +12,6 @@ body {
     .hidden {
         display: none;
     }
-
 }
 
 .navigation {
@@ -23,22 +22,18 @@ body {
     top: 0;
     left: 0;
     z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    line-height: 70px;
+    text-align: center;
 
-    .navigation-content {
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        text-align: center;
-        font-size: 18px;
-        line-height: 70px;
+    .navigation-foods-tab {
+        width: 100%;
+    }
 
-        .navigation-foods-tab {
-            width: 50%;
-        }
-
-        .navigation-profile-tab {
-            width: 50%;
-        }
+    .navigation-profile-tab {
+        width: 100%;
     }
 }
 

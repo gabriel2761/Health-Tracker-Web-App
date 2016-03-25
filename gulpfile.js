@@ -1,10 +1,23 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     inlinesource = require('gulp-inline-source'),
-    htmlmin = require('gulp-htmlmin');
+    htmlmin = require('gulp-htmlmin'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify');
 
 gulp.task('default', function() {
 
+});
+
+gulp.task('concat', function() {
+    return gulp.src(['src/js/model.js',
+            'src/js/collection.js',
+            'src/js/view.js',
+            'src/js/main.js'
+        ])
+        .pipe(concat('main.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('minify', function() {

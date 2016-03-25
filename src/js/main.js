@@ -8,7 +8,7 @@ var navigationView = new app.NavigationView({});
 $('#main-container').prepend(navigationView.render().el);
 
 var foodCollectionView = new app.FoodCollectionView({ collection: foodCollection, profile: profileModel });
-$('#food-search-list').html(foodCollectionView.render().el);
+$('#foods').html(foodCollectionView.render().el);
 
 var profileView = new app.ProfileView({ model: profileModel });
 $('#profile').html(profileView.render().el);

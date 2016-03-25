@@ -37,6 +37,26 @@ body {
     }
 }
 
+.main-container {
+    padding-top: 70px;
+    display: flex;
+
+    .foods {
+        width: 100%;
+    }
+
+    .profile {
+        margin: 0 auto;
+        width: 100%;
+
+        .calories {
+            text-align: center;
+        }
+    }
+}
+
+
+
 .search-container {
     display: flex;
 
@@ -57,28 +77,6 @@ body {
         color: #777;
         padding: 16px;
     }
-}
-
-.main-container {
-    padding-top: 70px;
-    display: flex;
-}
-
-.profile-view {
-    margin: 0 auto;
-    width: 100%;
-
-    .calories {
-        text-align: center;
-    }
-
-    .total-calories {
-        text-align: center;
-    }
-}
-
-.food-search-list {
-    width: 100%;
 }
 
 .food-item {
@@ -109,25 +107,16 @@ body {
     }
     .main-container {
         padding-top: 20px;
-    }
-    .food-search-list {
-        width: 100%;
-        display: block;
-    }
-    .profile-view {
-        display: block;
 
-        .profile-foods {
-            height: 80vh;
-            overflow-y: scroll;
+        .foods {
+            display: block;
+        }
+
+        .profile {
+            display: block;
         }
     }
-    .food-item {
-        width: 90%;
-    }
-
 }
-
 
 .foodlist {
     height: 80vh;

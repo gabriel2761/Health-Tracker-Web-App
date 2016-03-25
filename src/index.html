@@ -10,8 +10,8 @@
 <body>
 
     <main id="main-container" class="main-container">
-        <div id="food-search-list" class="food-search-list"></div>
-        <div id="profile" class="profile-view hidden"></div>
+        <div id="foods" class="foods"></div>
+        <div id="profile" class="profile hidden"></div>
     </main>
 
     <script id="navigation-template" type="text/template">
@@ -20,10 +20,10 @@
     </script>
 
     <script id="profile-template" type="text/template">
-        <div class="calories">
-            <h4 class="calories-header">total calories</h4>
+        <section class="calories">
+            <h4>total calories</h4>
             <p id="total-calories" class="total-calories"></p>
-        </div>
+        </section>
         <div id="profile-foods" class="profile-foods"></div>
     </script>
 
@@ -32,7 +32,7 @@
             <input id="search-bar" class="search-bar" placeholder="Search" onclick="this.select()">
             <button id="search-button" class="search-button fontawesome-search"></button>
         </div>
-        <div id="foodlist" class="foodlist"></div>
+        <div id="food-search-results" class="food-search-results"></div>
     </script>
 
     <script id="food-item-template" type="text/template">

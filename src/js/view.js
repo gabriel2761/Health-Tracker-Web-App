@@ -95,7 +95,7 @@ app.FoodCollectionView = Backbone.View.extend({
         return this;
     },
     search: function() {
-        $('#foodlist').empty();
+        $('#food-search-results').empty();
         var food = $('#search-bar').val();
         this.collection.reset();
         this.collection.search(food);
@@ -103,7 +103,7 @@ app.FoodCollectionView = Backbone.View.extend({
     },
     addFood: function(food) {
         var foodItemView = new app.FoodItemView({ model: food, profile: this.profile });
-        $('#foodlist').append(foodItemView.render().el);
+        $('#food-search-results').append(foodItemView.render().el);
     },
     checkEnterPressed: function(event) {
         if (event.keyCode === 13) this.search();

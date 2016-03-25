@@ -5,7 +5,7 @@ var profileModel = new app.ProfileModel({});
 
 var navigationView = new app.NavigationView({});
 
-$('#container').prepend(navigationView.render().el);
+$('#main-container').prepend(navigationView.render().el);
 
 var foodCollectionView = new app.FoodCollectionView({ collection: foodCollection, profile: profileModel });
 $('#food-search-list').html(foodCollectionView.render().el);

@@ -59,12 +59,9 @@ body {
     }
 }
 
-.container {
+.main-container {
     padding-top: 70px;
-
-    .content {
-        display: flex;
-    }
+    display: flex;
 }
 
 .profile-view {
@@ -110,7 +107,7 @@ body {
     .navigation {
         display: none;
     }
-    .container {
+    .main-container {
         padding-top: 20px;
     }
     .food-search-list {

@@ -3,10 +3,18 @@ var gulp = require('gulp'),
     inlinesource = require('gulp-inline-source'),
     htmlmin = require('gulp-htmlmin'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    livereload = require('gulp-livereload');
 
 gulp.task('default', function() {
 
+});
+
+gulp.task('watch', function() {
+    livereload.listen();
+    gulp.watch('src/sass/main.scss', ['sass']);
+    gulp.watch('src/index.html', ['minify']);
+    gulp.watch('src/js/*.js', ['concat']);
 });
 
 gulp.task('concat', function() {
@@ -24,17 +32,13 @@ gulp.task('minify', function() {
     return gulp.src('src/index.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(inlinesource())
-        .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('inlinesource', function() {
-    return gulp.src('src/index.html')
-        .pipe(inlinesource())
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('dist/'))
+        .pipe(livereload());
 });
 
 gulp.task('sass', function() {
     return gulp.src('src/sass/main.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('src/css'));
+        .pipe(gulp.dest('src/css'))
+        .pipe(livereload());
 });

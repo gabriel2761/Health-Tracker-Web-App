@@ -13,15 +13,15 @@ app.NavigationView = Backbone.View.extend({
         return this;
     },
     showFoods: function() {
-        if ($('#food-search-list').hasClass('hidden')) {
-            $('#food-search-list').removeClass('hidden');
+        if ($('#foods').hasClass('hidden')) {
+            $('#foods').removeClass('hidden');
             $('#profile').addClass('hidden');
         }
     },
     showProfile: function() {
         if ($('#profile').hasClass('hidden')) {
             $('#profile').removeClass('hidden');
-            $('#food-search-list').addClass('hidden');
+            $('#foods').addClass('hidden');
         }
     }
 });

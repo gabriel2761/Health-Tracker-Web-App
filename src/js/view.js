@@ -29,7 +29,7 @@ app.NavigationView = Backbone.View.extend({
 app.ProfileView = Backbone.View.extend({
     tagName: 'section',
     className: 'profile-view',
-    template: _.template($('#profile-view').html()),
+    template: _.template($('#profile-template').html()),
     initialize: function() {
         this.model.on('change', this.update, this);
         this.model.on('change', this.showRecent, this);
@@ -62,7 +62,7 @@ app.ProfileView = Backbone.View.extend({
 app.FoodItemView = Backbone.View.extend({
     tagName: 'section',
     className: 'food-item',
-    template: _.template($('#food-item').html()),
+    template: _.template($('#food-item-template').html()),
     events: {
         click: 'addFood'
     },
@@ -81,7 +81,7 @@ app.FoodItemView = Backbone.View.extend({
 });
 
 app.FoodCollectionView = Backbone.View.extend({
-    template: _.template($('#food-collection').html()),
+    template: _.template($('#food-collection-template').html()),
     events: {
         'click #search-button': 'search',
         'keyup #search-bar': 'checkEnterPressed'

@@ -12,6 +12,10 @@ body {
     .hidden {
         display: none;
     }
+
+    .invisible {
+        visibility: hidden;
+    }
 }
 
 .navigation {
@@ -99,9 +103,29 @@ body {
     .food-item-calories {
         text-align: right;
     }
+
+    .food-action {
+        line-height: 42px;
+        font-size: 22px;
+    }
 }
 
+.profile-item:hover {
+    background-color: #fff;
+    color: #666;
+    cursor: default;
 
+    .fontawesome-trash {
+        color: #bbb;
+        visibility: visible;
+
+        &:hover {
+            color: #666;
+            cursor: pointer;
+        }
+    }
+
+}
 
 /* Small devices (tablets, 768px and up) */
 

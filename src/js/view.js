@@ -52,8 +52,7 @@ app.ProfileView = Backbone.View.extend({
                 calories: food.calories,
                 brandname: food.brandname,
             });
-            var foodItemView = new app.FoodItemView({ model: foodItemModel, profile: this.model });
-
+            var foodItemView = new app.FoodItemView({ model: foodItemModel, profile: this.model, className: 'food-item profile-item' });
             $('#profile-foods').append(foodItemView.render().el);
         });
     }

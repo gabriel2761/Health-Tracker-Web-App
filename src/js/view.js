@@ -61,7 +61,7 @@ app.ProfileView = Backbone.View.extend({
             });
 
             foodItemView.delegateEvents({ 'click #trash': 'remove' });
-            $('#profile-foods').append(foodItemView.render().el);
+            $('#profile-foods').prepend(foodItemView.render().el);
         });
     }
 });

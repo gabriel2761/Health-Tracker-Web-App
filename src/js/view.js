@@ -31,8 +31,8 @@ app.ProfileView = Backbone.View.extend({
     className: 'profile-view',
     template: _.template($('#profile-template').html()),
     initialize: function() {
+        self = this;
         this.model.on('change', this.update, this);
-        this.model.on('change', this.showRecent, this);
     },
     render: function() {
         var profileTemplate = this.template(this.model.toJSON());
@@ -41,9 +41,8 @@ app.ProfileView = Backbone.View.extend({
     },
     update: function() {
         $('#total-calories').text(this.model.get('totalCalories'));
-    },
-    showRecent: function() {
         $('#profile-foods').empty();
+
         var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
         foods.forEach(function(food) {
             var foodItemModel = new app.FoodModel({
@@ -52,7 +51,11 @@ app.ProfileView = Backbone.View.extend({
                 calories: food.calories,
                 brandname: food.brandname,
             });
-            var foodItemView = new app.FoodItemView({ model: foodItemModel, profile: this.model, className: 'food-item profile-item' });
+            var foodItemView = new app.FoodItemView({
+                model: foodItemModel,
+                className: 'food-item profile-item',
+                profile: self.model
+            });
             foodItemView.delegateEvents({ 'click #trash': 'remove' });
             $('#profile-foods').append(foodItemView.render().el);
         });
@@ -79,7 +82,8 @@ app.FoodItemView = Backbone.View.extend({
         return this;
     },
     remove: function() {
-        console.log(this.model.get('name') + ' was clicked.');
+        this.model.remove();
+        this.profile.update();
     },
 });
 

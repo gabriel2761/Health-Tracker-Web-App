@@ -11,5 +11,4 @@ $('#foods').html(foodCollectionView.render().el);
 $('#profile').html(profileView.render().el);
 
 profileView.update();
-profileView.showRecent();
 

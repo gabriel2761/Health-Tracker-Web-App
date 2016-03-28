@@ -26,6 +26,11 @@ app.FoodModel = Backbone.Model.extend({
         });
         localStorage.setItem(app.FOODKEY, JSON.stringify(foods));
     },
+    remove: function() {
+        var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
+        foods.splice(foods.indexOf(this), 1);
+        localStorage.setItem(app.FOODKEY, JSON.stringify(foods));
+    }
 });
 
 app.ProfileModel = Backbone.Model.extend({

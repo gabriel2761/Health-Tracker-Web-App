@@ -44,8 +44,8 @@ app.ProfileView = Backbone.View.extend({
         $('#total-calories').text(this.model.get('totalCalories'));
         $('#profile-foods').empty();
 
-        var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
-        foods.forEach(function(food) {
+        this.database = new app.Database();
+        this.database.getFoods().forEach(function(food) {
 
             var foodItemModel = new app.FoodModel({
                 date: food.date,

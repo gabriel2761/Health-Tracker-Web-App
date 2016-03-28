@@ -10,26 +10,12 @@ app.FoodModel = Backbone.Model.extend({
         };
     },
     add: function() {
-        var today = new Date();
-        var day = today.getDate();
-        var month = today.getMonth() + 1;
-        var year = today.getFullYear();
-        var date = day + '-' + month + '-' + year;
-
-        var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
-        foods.push({
-            date: date,
-            name: this.get('name'),
-            calories: this.get('calories'),
-            brandname: this.get('brandname')
-
-        });
-        localStorage.setItem(app.FOODKEY, JSON.stringify(foods));
+        var database = new app.Database();
+        database.addFood(this);
     },
     remove: function() {
-        var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
-        foods.splice(foods.indexOf(this), 1);
-        localStorage.setItem(app.FOODKEY, JSON.stringify(foods));
+        var database = new app.Database();
+        database.removeFood(this);
     }
 });
 
@@ -43,10 +29,10 @@ app.ProfileModel = Backbone.Model.extend({
         this.update();
     },
     update: function() {
-        var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
         var totalCalories = 0;
+        var database = new app.Database();
 
-        foods.forEach(function(food) {
+        database.getFoods().forEach(function(food) {
             totalCalories += food.calories;
         });
 

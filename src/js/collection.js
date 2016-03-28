@@ -1,22 +1,13 @@
 var app = app || {};
-app.FOODKEY = '00171350164079791532768106613747518858072268586414085374652127518692281422029618450618146873715052348437598370353095255581323757727942884595778456445214324332932164034225461520571048702353787518605783';
 
 app.FoodCollection = Backbone.Collection.extend({
     model: app.FoodModel,
     initialize: function() {
         self = this;
-
-        var foods = JSON.parse(localStorage.getItem(app.FOODKEY));
-
-        if (foods === null) {
-            localStorage.setItem(app.FOODKEY, JSON.stringify([]));
-        } else {
-            foods.forEach(function(food) {
-                self.add(food);
-            });
-        }
-
-        console.log(foods);
+        self.database = new app.Database();
+        self.database.getFoods().forEach(function(food) {
+            self.add(food);
+        });
     },
     search: function(food) {
         self = this;

@@ -21,7 +21,8 @@ gulp.task('watch', function() {
 });
 
 gulp.task('concat', function() {
-    return gulp.src(['src/js/model.js',
+    return gulp.src(['src/js/database.js',
+            'src/js/model.js',
             'src/js/collection.js',
             'src/js/view.js',
             'src/js/main.js'

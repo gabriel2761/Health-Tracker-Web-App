@@ -53,6 +53,7 @@ app.ProfileView = Backbone.View.extend({
                 brandname: food.brandname,
             });
             var foodItemView = new app.FoodItemView({ model: foodItemModel, profile: this.model, className: 'food-item profile-item' });
+            foodItemView.undelegateEvents();
             $('#profile-foods').append(foodItemView.render().el);
         });
     }

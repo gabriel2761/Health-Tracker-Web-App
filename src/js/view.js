@@ -53,7 +53,7 @@ app.ProfileView = Backbone.View.extend({
                 brandname: food.brandname,
             });
             var foodItemView = new app.FoodItemView({ model: foodItemModel, profile: this.model, className: 'food-item profile-item' });
-            foodItemView.undelegateEvents();
+            foodItemView.delegateEvents({ 'click #trash': 'remove' });
             $('#profile-foods').append(foodItemView.render().el);
         });
     }
@@ -77,7 +77,10 @@ app.FoodItemView = Backbone.View.extend({
         var foodTemplate = this.template(this.model.toJSON());
         this.$el.html(foodTemplate);
         return this;
-    }
+    },
+    remove: function() {
+        console.log(this.model.get('name') + ' was clicked.');
+    },
 });
 
 app.FoodCollectionView = Backbone.View.extend({

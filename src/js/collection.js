@@ -19,6 +19,7 @@ app.FoodCollection = Backbone.Collection.extend({
         console.log(foods);
     },
     search: function(food) {
+        self = this;
         var url = 'https://api.nutritionix.com/v1_1/search/' + food + '?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=283e6104&appKey=7adbf74351829801e39b98eb74723505';
         $.ajax({
             url: url,

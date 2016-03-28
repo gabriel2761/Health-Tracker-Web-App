@@ -53,8 +53,15 @@ body {
         margin: 0 auto;
         width: 100%;
 
-        .calories {
+        .profile-calories {
             text-align: center;
+            padding: 20px;
+        }
+
+        .total-calories {
+            font-size: 36px;
+            font-weight: 100;
+            letter-spacing: 2px;
         }
     }
 }
@@ -144,13 +151,18 @@ body {
             display: block;
         }
 
+        .profile-foods {
+            overflow-y: scroll;
+            height: 70vh;
+        }
+
         .search-container {
             margin-bottom: 8px;
         }
 
         .food-search-results {
             overflow-y: scroll;
-            height: 86vh;
+            height: 87vh;
         }
     }
 }

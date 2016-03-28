@@ -143,14 +143,17 @@ body {
         .profile {
             display: block;
         }
+
+        .search-container {
+            margin-bottom: 8px;
+        }
+
+        .food-search-results {
+            overflow-y: scroll;
+            height: 86vh;
+        }
     }
 }
-
-.foodlist {
-    height: 80vh;
-    overflow-y: scroll;
-}
-
 
 /* Medium devices (desktops, 992px and up) */
 

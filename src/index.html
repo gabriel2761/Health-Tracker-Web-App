@@ -5,6 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Health Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css" inline>
 </head>
 <body>
@@ -30,7 +31,7 @@
     <script id="food-collection-template" type="text/template">
         <div class="search-container">
             <input id="search-bar" class="search-bar" placeholder="Search" onclick="this.select()">
-            <button id="search-button" class="search-button fontawesome-search"></button>
+            <button id="search-button" class="search-button fa fa-search"></button>
         </div>
         <div id="food-search-results" class="food-search-results"></div>
     </script>
@@ -41,7 +42,7 @@
             <p><%= name %></p>
         </div>
         <div class="food-action">
-            <p id="trash" class="fontawesome-trash invisible"></p>
+            <p id="trash" class="fa fa-trash invisible"></p>
         </div>
         <div class="food-item-calories">
             <p>cal</p>

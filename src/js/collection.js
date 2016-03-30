@@ -4,10 +4,6 @@ app.FoodCollection = Backbone.Collection.extend({
     model: app.FoodModel,
     initialize: function() {
         self = this;
-        self.database = new app.Database();
-        self.database.getFoods().forEach(function(food) {
-            self.add(food);
-        });
     },
     search: function(food) {
         self = this;

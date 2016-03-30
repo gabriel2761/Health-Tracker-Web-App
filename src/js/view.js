@@ -107,12 +107,14 @@ app.FoodCollectionView = Backbone.View.extend({
     },
     search: function() {
         $('#food-search-results').empty();
+        $('#loading-icon').removeClass('hidden');
         var food = $('#search-bar').val();
         this.collection.reset();
         this.collection.search(food);
         this.collection.each(this.addFood, this);
     },
     addFood: function(food) {
+        $('#loading-icon').addClass('hidden');
         var foodItemView = new app.FoodItemView({ model: food, profile: this.profile });
         $('#food-search-results').append(foodItemView.render().el);
     },

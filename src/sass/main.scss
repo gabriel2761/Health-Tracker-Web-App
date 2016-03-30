@@ -15,6 +15,14 @@ body {
     .invisible {
         visibility: hidden;
     }
+
+    .fa-circle-o-notch {
+        position: absolute;
+        top: 290px;
+        left: 50%;
+        font-size:36px;
+        color: #888;
+    }
 }
 
 .navigation {
@@ -136,6 +144,9 @@ body {
 /* Small devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
+    .fa-circle-o-notch {
+        left: 23% !important;
+    }
     .navigation {
         display: none;
     }

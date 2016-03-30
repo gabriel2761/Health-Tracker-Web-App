@@ -4,10 +4,6 @@ body {
     background-color: #e9eaea;
     color: #666;
 
-    [class*="fontawesome-"]:before {
-        font-family: 'fontawesome', sans-serif;
-    }
-
     .hidden {
         display: none;
     }

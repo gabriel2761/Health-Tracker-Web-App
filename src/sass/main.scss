@@ -53,11 +53,9 @@ body {
 
     .foods {
         width: 100%;
-        margin-right: 4px;
     }
 
     .profile {
-        margin-left: 4px;
         width: 100%;
 
         .profile-calories {
@@ -160,10 +158,12 @@ body {
         padding-top: 20px;
 
         .foods {
+            margin-right: 4px;
             display: block;
         }
 
         .profile {
+            margin-left: 4px;
             display: block;
         }
 

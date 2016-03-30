@@ -92,6 +92,10 @@ body {
         font-size: 18px;
         color: #777;
         padding: 16px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
@@ -145,9 +149,11 @@ body {
     .fa-circle-o-notch {
         left: 23% !important;
     }
+
     .navigation {
         display: none;
     }
+
     .main-container {
         padding-top: 20px;
 
@@ -178,6 +184,10 @@ body {
 /* Medium devices (desktops, 992px and up) */
 
 @media (min-width: 992px) {
+    .fa-circle-o-notch {
+        left: 30% !important;
+    }
+
     .main-container {
         width: 970px;
     }

@@ -17,11 +17,23 @@ app.NavigationView = Backbone.View.extend({
             $('#foods').removeClass('hidden');
             $('#profile').addClass('hidden');
         }
+
+        if($('#navigation-profile-tab').hasClass('underline-red')) {
+            $('#navigation-profile-tab').removeClass('underline-red');
+            $('#navigation-foods-tab').addClass('underline-red');
+        }
+
+
     },
     showProfile: function() {
         if ($('#profile').hasClass('hidden')) {
             $('#profile').removeClass('hidden');
             $('#foods').addClass('hidden');
+        }
+
+        if ($('#navigation-foods-tab').hasClass('underline-red')) {
+            $('#navigation-foods-tab').removeClass('underline-red');
+            $('#navigation-profile-tab').addClass('underline-red');
         }
     }
 });

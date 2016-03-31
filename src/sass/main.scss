@@ -124,10 +124,6 @@ body {
         text-align: right;
     }
 
-    .food-action {
-        line-height: 102px;
-        font-size: 22px;
-    }
 }
 
 .profile-item:hover {
@@ -137,7 +133,9 @@ body {
 
     .fa-trash {
         color: #bbb;
-        visibility: visible;
+        display: inline-block;
+        margin-top: 34px;
+        font-size: 22px;
 
         &:hover {
             color: #666;

@@ -51,13 +51,14 @@ app.ProfileView = Backbone.View.extend({
     },
     update: function() {
         var self = this,
-            date = '';
+            date = null;
 
         $('#total-calories').text(this.model.get('totalCalories'));
         $('#profile-foods').empty();
 
         this.database = new app.Database();
-        this.database.getFoods().forEach(function(food) {
+        var foods = this.database.getFoods();
+        foods.forEach(function(food) {
 
             var foodItemModel = new app.FoodModel({
                 databaseId: food.databaseId,
@@ -73,11 +74,26 @@ app.ProfileView = Backbone.View.extend({
                 profile: self.model
             });
 
-            if (date !== food.date) {
-                $('#profile-foods').prepend('<h3 id="date-heading" class="date-heading">' + food.date + '</h3>');
+            totalCaloriesToday += food.calories;
+
+            if (date !== food.date || date === null) {
+                var totalCaloriesToday = 0;
+                date = food.date;
+
+                foods.forEach(function(item) {
+                    if (date === item.date) {
+                        totalCaloriesToday += item.calories;
+                    }
+                });
+
+                $('#profile-foods').prepend(
+                    '<div id="date-heading" class="date-heading"><h3>' +
+                    date + '</h3><p>total ' + totalCaloriesToday + '</p></div>'
+                );
             }
 
             date = food.date;
+
             foodItemView.delegateEvents({ 'click #trash': 'remove' });
             $(foodItemView.render().el).insertAfter('#date-heading');
         });

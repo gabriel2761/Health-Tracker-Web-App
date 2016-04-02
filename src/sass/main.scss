@@ -46,6 +46,17 @@ body {
     .notification.show {
         bottom: 0;
     }
+
+    .date-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: bottom;
+    }
+
+    .date-heading * {
+        margin: 0;
+        margin-top: 16px;
+    }
 }
 
 .navigation {

@@ -91,6 +91,11 @@ app.FoodItemView = Backbone.View.extend({
     addFood: function() {
         this.model.add();
         this.profile.update();
+        $('#notification').addClass('show');
+
+        setTimeout(function() {
+            $('#notification').removeClass('show');
+        }, 1000);
     },
     render: function() {
         var foodTemplate = this.template(this.model.toJSON());
@@ -132,5 +137,20 @@ app.FoodCollectionView = Backbone.View.extend({
     },
     checkEnterPressed: function(event) {
         if (event.keyCode === 13) this.search();
+    },
+});
+
+app.NotificationView = Backbone.View.extend({
+    id: 'notification',
+    tagName: 'section',
+    className: 'notification',
+    template: _.template($('#notification-template').html()),
+    render: function() {
+        var template = this.template(this.model);
+        this.$el.html(this.template);
+        return this;
+    },
+    show: function() {
+
     },
 });

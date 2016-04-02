@@ -23,7 +23,25 @@ body {
     .underline-red {
         border-bottom: 2.5px solid #ff8282;
     }
+
+    .notification {
+        position: fixed;
+        background-color: #666;
+        bottom: -80px;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        color: #fff;
+        will-change: transform;
+        transition: bottom 0.3s;
+    }
 }
+
+.notification.show {
+    bottom: 0;
+}
+
+
 
 .navigation {
     width: 100%;

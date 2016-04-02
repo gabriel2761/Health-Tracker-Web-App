@@ -10,13 +10,14 @@ gulp.task('default', [
     'sass',
     'concat',
     'minify',
-    'watch'
+
 ]);
+
 
 gulp.task('watch', function() {
     livereload.listen();
-    gulp.watch('src/sass/main.scss', ['sass', 'minify']);
-    gulp.watch('src/index.html', ['minify']);
+    gulp.watch('src/sass/main.scss', ['sass', 'minify-reload']);
+    gulp.watch('src/index.html', ['minify-reload']);
     gulp.watch('src/js/*.js', ['concat']);
 });
 
@@ -37,11 +38,25 @@ gulp.task('minify', function() {
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('dist/'))
         .pipe(inlinesource())
+        .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('sass', function() {
+    return gulp.src('src/sass/main.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('dist/css'));
+});
+
+gulp.task('minify-reload', function() {
+    return gulp.src('src/index.html')
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(gulp.dest('dist/'))
+        .pipe(inlinesource())
         .pipe(gulp.dest('dist/'))
         .pipe(livereload());
 });
 
-gulp.task('sass', function() {
+gulp.task('sass-reload', function() {
     return gulp.src('src/sass/main.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('dist/css'))

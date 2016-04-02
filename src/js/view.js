@@ -74,7 +74,7 @@ app.ProfileView = Backbone.View.extend({
             });
 
             if (date !== food.date) {
-                $('#profile-foods').prepend('<h3 id="date-heading">' + food.date + '</h3>');
+                $('#profile-foods').prepend('<h3 id="date-heading" class="date-heading">' + food.date + '</h3>');
             }
 
             date = food.date;

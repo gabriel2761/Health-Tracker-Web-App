@@ -3,6 +3,7 @@ var app = app || {};
 app.FoodModel = Backbone.Model.extend({
     defaults: function() {
         return {
+            databaseId: -1,
             name: '',
             calories: 0,
             brandname: '',

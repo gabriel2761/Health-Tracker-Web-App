@@ -4,6 +4,16 @@ app.Database = function() {
     this.KEY = 'awef83hriwalgbwaeg8ahwpfoiengp9seugbzspi3uhfsozigbps9zugbspigbp3PFQFNZKLNVZSKEFBSLEIGUBSPG9UQB';
     var items = JSON.parse(localStorage.getItem(this.KEY));
     if (items === null) localStorage.setItem(this.KEY, JSON.stringify([]));
+
+    this.ID_COUNT = 'sldzijfo9s3gfzsos876bOBkuyfcKUtyfytrdJu643557FfjUTfkuyg9uhcnussbskxudgzzopowoskskxdjmgcxjk';
+    var id = localStorage.getItem(this.ID_COUNT);
+    if (id === null) localStorage.setItem(this.ID_COUNT, 0);
+};
+
+app.Database.prototype.getId = function() {
+    var id = parseInt(localStorage.getItem(this.ID_COUNT));
+    localStorage.setItem(this.ID_COUNT, ++id);
+    return id;
 };
 
 app.Database.prototype.getFoods = function() {
@@ -18,7 +28,11 @@ app.Database.prototype.addFood = function(food) {
         date = day + '-' + month + '-' + year;
 
     var foods = this.getFoods();
+    var id = this.getId();
+
+
     foods.push({
+        databaseId: id,
         date: date,
         name: food.get('name'),
         calories: food.get('calories'),
@@ -27,9 +41,15 @@ app.Database.prototype.addFood = function(food) {
     localStorage.setItem(this.KEY, JSON.stringify(foods));
 };
 
-app.Database.prototype.removeFood = function(food) {
+app.Database.prototype.removeFood = function(model) {
     var foods = this.getFoods();
-    foods.splice(foods.indexOf(food), 1);
+
+    foods.forEach(function(food) {
+        if (food.databaseId === model.get('databaseId')) {
+            foods.splice(foods.indexOf(food), 1);
+        }
+    });
+
     localStorage.setItem(this.KEY, JSON.stringify(foods));
 };
 

@@ -18,11 +18,10 @@ app.NavigationView = Backbone.View.extend({
             $('#profile').addClass('hidden');
         }
 
-        if($('#navigation-profile-tab').hasClass('underline-red')) {
+        if ($('#navigation-profile-tab').hasClass('underline-red')) {
             $('#navigation-profile-tab').removeClass('underline-red');
             $('#navigation-foods-tab').addClass('underline-red');
         }
-
 
     },
     showProfile: function() {
@@ -60,6 +59,7 @@ app.ProfileView = Backbone.View.extend({
         this.database.getFoods().forEach(function(food) {
 
             var foodItemModel = new app.FoodModel({
+                databaseId: food.databaseId,
                 date: food.date,
                 name: food.name,
                 calories: food.calories,

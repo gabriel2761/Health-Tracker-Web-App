@@ -1,5 +1,12 @@
 var app = app || {};
 
+/**
+ * Search results from the nutritionix API, used to populate
+ * the FoodCollectionView with a list of food items. Sends
+ * an AJAX request to nutritionix using a keyword from the user.
+ *
+ * @constructor
+ */
 app.FoodCollection = Backbone.Collection.extend({
     model: app.FoodModel,
     initialize: function() {

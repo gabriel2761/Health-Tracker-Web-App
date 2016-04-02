@@ -50,7 +50,8 @@ app.ProfileView = Backbone.View.extend({
         return this;
     },
     update: function() {
-        self = this;
+        var self = this,
+            date = '';
 
         $('#total-calories').text(this.model.get('totalCalories'));
         $('#profile-foods').empty();
@@ -72,8 +73,13 @@ app.ProfileView = Backbone.View.extend({
                 profile: self.model
             });
 
+            if (date !== food.date) {
+                $('#profile-foods').prepend('<h3 id="date-heading">' + food.date + '</h3>');
+            }
+
+            date = food.date;
             foodItemView.delegateEvents({ 'click #trash': 'remove' });
-            $('#profile-foods').prepend(foodItemView.render().el);
+            $(foodItemView.render().el).insertAfter('#date-heading');
         });
     }
 });
@@ -93,7 +99,6 @@ app.FoodItemView = Backbone.View.extend({
         this.profile.update();
         $('#notification').addClass('show');
         $('#notification-brandname').html('added ' + this.model.get('brandname'));
-
 
         setTimeout(function() {
             $('#notification').removeClass('show');

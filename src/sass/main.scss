@@ -26,6 +26,8 @@ body {
 
     .notification {
         position: fixed;
+        display: flex;
+        align-items: center;
         background-color: #666;
         bottom: -80px;
         left: 0;
@@ -34,6 +36,11 @@ body {
         color: #fff;
         will-change: transform;
         transition: bottom 0.3s;
+        padding-left: 26px;
+
+        .notification-brandname {
+            margin: 0;
+        }
     }
 }
 

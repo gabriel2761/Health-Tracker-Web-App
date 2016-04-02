@@ -92,6 +92,8 @@ app.FoodItemView = Backbone.View.extend({
         this.model.add();
         this.profile.update();
         $('#notification').addClass('show');
+        $('#notification-brandname').html('added ' + this.model.get('brandname'));
+
 
         setTimeout(function() {
             $('#notification').removeClass('show');

@@ -151,17 +151,13 @@ app.FoodItemView = Backbone.View.extend({
     },
     initialize: function(options) {
         this.profile = options.profile;
+        this.notification = options.notification;
     },
     addFood: function() {
         $('#food-search-results').empty();
         this.model.add();
         this.profile.update();
-        $('#notification').addClass('show');
-        $('#notification-brandname').html('Added ' + this.model.get('brandname'));
-
-        setTimeout(function() {
-            $('#notification').removeClass('show');
-        }, 1000);
+        this.notification.showMessage('Added ' + this.model.get('brandname'));
     },
     render: function() {
         var foodTemplate = this.template(this.model.toJSON());
@@ -193,6 +189,7 @@ app.FoodCollectionView = Backbone.View.extend({
     },
     initialize: function(options) {
         this.profile = options.profile;
+        this.notification = options.notification;
         this.collection.on('add', this.addFood, this);
     },
     render: function() {
@@ -209,7 +206,11 @@ app.FoodCollectionView = Backbone.View.extend({
     },
     addFood: function(food) {
         $('#loading-icon').addClass('hidden');
-        var foodItemView = new app.FoodItemView({ model: food, profile: this.profile });
+        var foodItemView = new app.FoodItemView({
+            model: food,
+            profile: this.profile,
+            notification: this.notification
+        });
         $('#food-search-results').append(foodItemView.render().el);
     },
     checkEnterPressed: function(event) {
@@ -231,4 +232,12 @@ app.NotificationView = Backbone.View.extend({
         this.$el.html(this.template);
         return this;
     },
+    showMessage: function(message) {
+        $('#notification').addClass('show');
+        $('#notification-brandname').html(message);
+
+        setTimeout(function() {
+            $('#notification').removeClass('show');
+        }, 1000);
+    }
 });

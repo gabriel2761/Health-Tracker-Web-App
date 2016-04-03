@@ -153,6 +153,7 @@ app.FoodItemView = Backbone.View.extend({
         this.profile = options.profile;
     },
     addFood: function() {
+        $('#food-search-results').empty();
         this.model.add();
         this.profile.update();
         $('#notification').addClass('show');

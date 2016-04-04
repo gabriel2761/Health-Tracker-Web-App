@@ -197,15 +197,23 @@ app.FoodCollectionView = Backbone.View.extend({
         return this;
     },
     search: function() {
+        var self = this;
         $('#food-search-results').empty();
         $('#loading-icon').removeClass('hidden');
         var food = $('#search-bar').val();
-        this.collection.reset();
-        this.collection.search(food);
-        this.collection.each(this.addFood, this);
+
+        self.collection.reset();
+        self.collection.search(food, function(successful) {
+            if (successful) {
+                self.collection.each(self.addFood, self);
+            } else {
+                self.notification.showMessage("Something went wrong");
+            }
+            $('#loading-icon').addClass('hidden');
+        });
+
     },
     addFood: function(food) {
-        $('#loading-icon').addClass('hidden');
         var foodItemView = new app.FoodItemView({
             model: food,
             profile: this.profile,

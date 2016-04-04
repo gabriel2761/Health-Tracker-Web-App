@@ -12,7 +12,7 @@ app.FoodCollection = Backbone.Collection.extend({
     initialize: function() {
         self = this;
     },
-    search: function(food) {
+    search: function(food, successful) {
         self = this;
         var url = 'https://api.nutritionix.com/v1_1/search/' + food + '?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=283e6104&appKey=7adbf74351829801e39b98eb74723505';
         $.ajax({
@@ -27,8 +27,9 @@ app.FoodCollection = Backbone.Collection.extend({
                     calories: Math.round(food.fields.nf_calories),
                 }));
             });
+            successful(true);
         }).error(function(jqXHR, textStatus, errorThrown) {
-            console.log('Something went wrong');
+            successful(false);
         });
     }
 });

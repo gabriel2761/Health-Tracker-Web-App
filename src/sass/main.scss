@@ -156,24 +156,33 @@ body {
         text-align: right;
     }
 
+    .food-action {
+        display: none;
+    }
+
+}
+
+.profile-item {
     .fa-trash {
         color: #bbb;
         margin-top: 34px;
         font-size: 22px;
     }
 
-}
+    .food-action {
+        display: block;
+    }
 
-.profile-item:hover {
-    background-color: #fff;
-    color: #666;
-    cursor: default;
+    &:hover {
+        background-color: #fff;
+        color: #666;
+        cursor: default;
+    }
 
     .fa-trash:hover {
         color: #666;
         cursor: pointer;
     }
-
 }
 
 /* Small devices (tablets, 768px and up) */

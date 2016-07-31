@@ -199,7 +199,7 @@ app.FoodCollectionView = Backbone.View.extend({
     search: function() {
         var self = this;
         $('#food-search-results').empty();
-        $('#loading-icon').removeClass('hidden');
+        $('#food-search-results').append('<i id="loading-icon" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>');
         var food = $('#search-bar').val();
 
         self.collection.reset();
@@ -209,7 +209,7 @@ app.FoodCollectionView = Backbone.View.extend({
             } else {
                 self.notification.showMessage("Something went wrong");
             }
-            $('#loading-icon').addClass('hidden');
+            $('#loading-icon').remove();
         });
 
     },

@@ -9,9 +9,9 @@ body {
     }
 
     .fa-circle-o-notch {
-        position: absolute;
-        top: 290px;
-        left: 50%;
+        display: block;
+        margin: 20vh auto;
+        text-align: center;
         font-size:36px;
         color: #888;
     }

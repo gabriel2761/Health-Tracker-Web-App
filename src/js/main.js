@@ -2,12 +2,12 @@ var app = app || {};
 
 function showTutorial() {
     $('#tutorial-container').removeClass('hidden');
-    $('#close-button').click(function() {
-        localStorage.setItem('first-visit', '1');
-        $('#tutorial-container').addClass('hidden');
-    });
 }
 
+$('#close-button').click(function() {
+    localStorage.setItem('first-visit', '1');
+    $('#tutorial-container').addClass('hidden');
+});
 
 var firstVisit = localStorage.getItem('first-visit');
 if (firstVisit === null) showTutorial();

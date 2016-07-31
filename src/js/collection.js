@@ -20,6 +20,12 @@ app.FoodCollection = Backbone.Collection.extend({
             dataType: 'json',
         }).done(function(result) {
             var foods = result.hits;
+
+            if (foods.length === 0) {
+                successful('empty');
+                return;
+            }
+
             foods.forEach(function(food) {
                 self.add(new app.FoodModel({
                     name: food.fields.item_name,

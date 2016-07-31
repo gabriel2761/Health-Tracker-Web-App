@@ -204,10 +204,12 @@ app.FoodCollectionView = Backbone.View.extend({
 
         self.collection.reset();
         self.collection.search(food, function(successful) {
-            if (successful) {
+            if (successful === 'empty') {
+                self.notification.showMessage('No results found for ' + food);
+            } else if (successful) {
                 self.collection.each(self.addFood, self);
             } else {
-                self.notification.showMessage("Something went wrong");
+                self.notification.showMessage('Something went wrong');
             }
             $('#loading-icon').remove();
         });

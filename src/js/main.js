@@ -1,5 +1,14 @@
 var app = app || {};
 
+function showTutorial() {
+    alert('first time');
+    localStorage.setItem('first-visit', '1');
+}
+
+var firstVisit = localStorage.getItem('first-visit');
+if (!firstVisit) showTutorial();
+
+
 var notificationView = new app.NotificationView({}),
     foodCollection = new app.FoodCollection([]),
     profileModel = new app.ProfileModel({}),

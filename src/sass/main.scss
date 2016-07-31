@@ -164,13 +164,14 @@ body {
 
 .profile-item {
     .fa-trash {
+        margin: 0;
         color: #bbb;
-        margin-top: 34px;
         font-size: 22px;
     }
 
     .food-action {
-        display: block;
+        display: flex;
+        align-items: center;
     }
 
     &:hover {
@@ -188,24 +189,8 @@ body {
 /* Small devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-    .fa-circle-o-notch {
-        left: 23% !important;
-    }
-
     .navigation {
         display: none;
-    }
-
-    .profile-item {
-        .fa-trash {
-            visibility: hidden;
-        }
-
-        &:hover {
-            .fa-trash {
-                visibility: visible;
-            }
-        }
     }
 
     .main-container {
@@ -240,10 +225,6 @@ body {
 /* Medium devices (desktops, 992px and up) */
 
 @media (min-width: 992px) {
-    .fa-circle-o-notch {
-        left: 30% !important;
-    }
-
     .main-container {
         width: 970px;
     }

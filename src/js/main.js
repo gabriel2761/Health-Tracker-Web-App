@@ -27,3 +27,4 @@ $('#profile').html(profileView.render().el);
 $('main').append(notificationView.render().el);
 
 profileView.update();
+$('#search-button').click();
